@@ -1,61 +1,64 @@
-/*
- If 1 == Monday
- If 2 == Tuesday
- If 3 == Wednesday
- If 4 == Thursday
- If 5 == Friday
- If 6 == Saturday
- If 7 == Sunday
- */
-
 #include <iostream>
 using namespace std;
+/*base salary
+firstBonus is based on number of years worked at the store
+years <= 5 firstBonus = years * $10
+years > 5 firstBonus = years * $20
+secondBonus is based on sales made within the month
+sales >= $5000 & sales < 10000 secondBonus = 0.03 * sales
+sales >= 10000 secondBonus = sales * 0.06
+ */
 
 int main() {
- int day;
+ //Declare variables
+ float baseSalary;
+ int years;
+ float sales;
+ float firstBonus;
+ float secondBonus;
+ float netSalary;
+ string fullName;
 
- //Day of the week inputted
- cout<< "Enter the number of your day: "<< endl;
- cin >> day;
 
- switch (day) {
-  case 1:
-   cout<< "Monday"<<endl;
-   break;
-   case 2:
-   cout<< "Tuesday"<<endl;
-   break;
-   case 3:
-   cout<< "Wednesday"<<endl;
-   break;
-   case 4:
-   cout << "Thursday"<<endl;
-   break;
-   case 5:
-   cout<< "Friday"<<endl;
-   break;
-   case 6:
-   cout<< "Saturday"<<endl;
-   break;
-   case 7:
-   cout<< "Sunday"<<endl;
-   break;
+ cout<<"Enter your full name \n";
+ getline(cin,fullName);
+ //The base salary of the salesperson
+ cout<<"Enter your base salary:\n";
+ cin>>baseSalary;
+ // The number of years the salesperxon has worked there
+ cout<<"Enter your years:\n";
+ cin>>years;
+ //The sales made within the month
+ cout<<"Enter your monthly sales:\n";
+ cin>>sales;
+ //Finding the firstBonus based on the number of years
+ if (years <= 5) {
+  firstBonus = 10 * years;
+ } else {
+  firstBonus = 20 * years;
  }
- // if (day == 1) {
- //  cout<< "The Day is Monday";
- // }else if (day == 2) {
- //  cout << "The Day is Tuesday";
- // }else if (day == 3) {
- //  cout << "The Day is Wednesday";
- // }else if (day == 4) {
- //  cout << "The Day is Thursday";
- // }else if (day == 5) {
- //  cout << "The Day is Friday";
- // }else if (day == 6) {
- //  cout << "The Day is Saturday";
- // }else if (day == 7) {
- //  cout << "The Day is Sunday";
- // }
+ //secondBonus is based on sales made within the month
+ if (sales >= 5000 && sales < 10000 ) {
+  secondBonus = 0.03 * sales;
+ } else if (sales >= 10000) {
+  secondBonus = 0.06 * sales;
+ }else {
+  secondBonus = 0 * sales;
+ }
+ netSalary = baseSalary + firstBonus + secondBonus;
 
- return 0;
+
+
+ cout<<"___________________ Paycheck_______________\n";
+ cout<<"__________________Simon And Sons_____________\n";
+ cout<<"Full name   : "<<fullName<<endl;
+ cout<<"Base Salary : $"<<baseSalary<<endl;
+ cout<<"First Bonus : $"<<firstBonus<<endl;
+ cout<<"Second Bonus: $"<<secondBonus<<endl;
+ cout<<"Net Salary  : $"<<netSalary<<endl;
+
+
+
+
+
 }
