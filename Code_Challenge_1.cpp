@@ -26,7 +26,7 @@ int main() {
  cout<<"Enter your base salary:\n";
  cin>>baseSalary;
  // The number of years the salesperxon has worked there
- cout<<"Enter your years:\n";
+ cout<<"Enter the number of years:\n";
  cin>>years;
  //The sales made within the month
  cout<<"Enter your monthly sales:\n";
